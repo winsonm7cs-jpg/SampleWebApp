@@ -3,171 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ALIET Student Placement Registration</title>
+    <title>BeatWave 2026 | Andhra Loyola Engineering College</title>
     <style>
-        /* Modern & Clean Color Palette */
-        :root {
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --primary-color: #1e3a8a; /* Deep professional blue */
-            --primary-hover: #1d4ed8;
-            --text-color: #333333;
-            --border-color: #cccccc;
-            --focus-ring: #93c5fd;
-        }
-
+        /* Base Styles & Reset */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .highlight {
+            color: #66fcf1;
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #1f2833;
+        }
+
+        .nav-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .form-container {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px;
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #66fcf1;
         }
 
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #c5c6c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #66fcf1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(11, 12, 16, 1)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            font-size: 24px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .college-title {
+            font-size: 1.1rem;
+            color: #45f3ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #45a29e;
+            transform: translateY(-2px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #66fcf1;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Schedule / Line-up timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .timeline-card {
+            background-color: #1f2833;
+            border-left: 4px solid #66fcf1;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .time {
+            color: #66fcf1;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Registration Form Section */
+        .registration {
+            background-color: #1f2833;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        label {
+        .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            font-size: 14px;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 0.9rem;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        input:focus, select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 5px var(--focus-ring);
-        }
-
-        .row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .row .form-group {
-            flex: 1;
-        }
-
-        button {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
+            background-color: #0b0c10;
+            border: 1px solid #45a29e;
             border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 10px;
+            color: #fff;
+            font-size: 1rem;
         }
 
-        button:hover {
-            background-color: var(--primary-hover);
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #66fcf1;
+            box-shadow: 0 0 8px rgba(102, 252, 241, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0c10;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #1f2833;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Kept simple for raw static layout */
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>WELCOME CSE(AI&ML) ENGINEERS</h2>
-        <form action="#" method="POST">
-            
-            <!-- Full Name -->
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="LAYOLA" required>
-            </div>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">BEAT<span class="highlight">WAVE'26</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <!-- Email Address -->
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="winson@gmail.com" required>
-            </div>
+    <!-- Hero / Welcome Section -->
+    <section id="home" class="hero">
+        <p class="college-title">Andhra Loyola Institute of Engineering & Technology, Vijayawada</p>
+        <h1>Feel The <span class="highlight">Rhythm</span></h1>
+        <p>Join us for the grandest inter-collegiate music festival of the year. Witness electrifying live performances, competitive battle of bands, and soothing acoustic sets.</p>
+        <p style="margin-bottom: 25px; font-weight: bold; color: #66fcf1;">📅 October 24, 2026 | 📍 Open Air Auditorium</p>
+        <a href="#register" class="btn">Secure Your Pass</a>
+    </section>
 
-            <!-- Phone Number -->
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="9876543210" required>
+    <!-- Schedule / Timeline Section -->
+    <section id="schedule">
+        <h2 class="section-title">Event <span class="highlight">Schedule</span></h2>
+        <div class="timeline">
+            <div class="timeline-card">
+                <span class="time">09:30 AM - 10:30 AM</span>
+                <h3>Inauguration Ceremony</h3>
+                <p>Welcome address by the management, classical prayer song invocation, and lighting of the lamp.</p>
             </div>
+            <div class="timeline-card">
+                <span class="time">10:45 AM - 01:00 PM</span>
+                <h3>Voice of Loyola (Solo)</h3>
+                <p>Eastern and Western solo singing competition showcasing fine voices from various engineering branches.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="time">02:00 PM - 04:30 PM</span>
+                <h3>Battle of the Bands</h3>
+                <p>High-octane rock and fusion band showdowns competing for the ultimate cash prize pool.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="time">05:00 PM - 07:30 PM</span>
+                <h3>DJ Night & EDM Fest</h3>
+                <p>The final closure acts featuring popular guest DJs to set the dance floor ablaze.</p>
+            </div>
+        </div>
+    </section>
 
-            <!-- Department & Roll Number Row -->
-            <div class="row">
+    <!-- Registration Form Section -->
+    <section id="register">
+        <h2 class="section-title">Registration <span class="highlight">Portal</span></h2>
+        <div class="registration">
+            <form action="#" method="POST" onsubmit="alert('Thank you for registering! See you at BeatWave.'); return false;">
                 <div class="form-group">
-                    <label for="dept">Department</label>
-                    <select id="dept" name="dept" required>
-                        <option value="" disabled selected>Select</option>
-                        <option value="CSE">CSE(AI&ML)</option>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">College Email Address</label>
+                    <input type="email" id="email" required placeholder="example@aliet.ac.in">
+                </div>
+                <div class="form-group">
+                    <label for="roll">Roll Number / Registration ID</label>
+                    <input type="text" id="roll" required placeholder="e.g., 22981A05XX">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" required>
+                        <option value="">Select your branch</option>
+                        <option value="CSE">Computer Science & Engineering (CSE)</option>
+                        <option value="ECE">Electronics & Communication (ECE)</option>
+                        <option value="EEE">Electrical & Electronics (EEE)</option>
+                        <option value="MECH">Mechanical Engineering</option>
+                        <option value="CIVIL">Civil Engineering</option>
                         <option value="IT">Information Technology</option>
-                        <option value="ECE">Electronics</option>
-                        <option value="MECH">Mechanical</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="rollno">Roll Number</label>
-                    <input type="text" id="rollno" name="rollno" placeholder="CS2401" required>
-                </div>
-            </div>
-
-            <!-- CGPA & Graduation Year Row -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="cgpa">Current CGPA</label>
-                    <input type="number" id="cgpa" name="cgpa" placeholder="8.5" step="0.01" min="0" max="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="year">Graduation Year</label>
-                    <input type="number" id="year" name="year" placeholder="2027" min="2024" max="2035" required>
-                </div>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit">Register Now</button>
-
-        </form>
-    </div>
-
-</body>
-</html>
